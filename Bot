@@ -1,0 +1,22 @@
+import discord
+from discord.ext import commands
+
+intents = discord.Intents.default()
+intents.message_content = True
+
+bot = commands.Bot(command_prefix='/', intents=intents)
+
+@bot.event
+async def on_ready():
+    print("Se inicio el bot")
+
+@bot.command()
+async def hola(ctx):
+    await ctx.send("Hola, como estas")
+
+@bot.command()
+async def suma(ctx,num1:int,num2:int):
+    suma = num1 + num2
+    await ctx.send(f'La suma de {num1} + {num2} = {suma}')
+
+bot.run("Token")
