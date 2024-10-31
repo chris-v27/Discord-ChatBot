@@ -1,5 +1,5 @@
 import discord
-from bot_logic import gen_pass
+from bot_logic import *
 from discord.ext import commands
 
 intents = discord.Intents.default()
@@ -24,5 +24,10 @@ async def suma(ctx,num1:int,num2:int):
 async def password(ctx):
     password = gen_pass()
     await ctx.send(password)
+
+@bot.command()
+async def coin(ctx):
+    coin_side = flip_coin()
+    await ctx.send(coin_side)
 
 bot.run("Token")
