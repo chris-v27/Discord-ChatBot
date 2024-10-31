@@ -20,4 +20,9 @@ async def suma(ctx,num1:int,num2:int):
     suma = num1 + num2
     await ctx.send(f'La suma de {num1} + {num2} = {suma}')
 
+@bot.command()
+async def password(ctx):
+    password = gen_pass()
+    await ctx.send(password)
+
 bot.run("Token")
